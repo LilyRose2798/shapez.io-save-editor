@@ -3,8 +3,6 @@ const { readFile, writeFile } = require("fs").promises
 const { compress, decompress } = require("./common")
 const path = require("path")
 
-const editorConfig = readFile("./editor-config.json").then(JSON.parse)
-
 const roamingFolder = process.env.APPDATA || (process.env.HOME + process.platform == "darwin" ? "/Library/Preferences" : "/.local/share")
 let storePath = path.join(roamingFolder, "shapez.io", "saves")
 
@@ -16,6 +14,11 @@ const saveFileButton = document.getElementById("saveFile")
 const pageHeader = document.getElementById("header")
 const editorDiv = document.getElementById("editor")
 let json
+
+const editorConfig = readFile("./editor-config.json").then(JSON.parse).catch(_ => {
+    pageHeader.textContent = "Missing editor configuration (editor-config.json)"
+    openFileButton.disabled = true
+})
 
 const resolvePath = (obj, path) => path.length === 0 ? obj : resolvePath(obj[path[0]], path.slice(1))
 
