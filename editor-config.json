@@ -1,0 +1,62 @@
+[
+    {
+        "title": "General",
+        "path": [],
+        "fields": [
+            { "label": "Version", "path": ["version"], "type": "int" },
+            { "label": "Level", "path": ["dump", "hubGoals", "level"], "type": "int" },
+            { "label": "Map Seed", "path": ["dump", "map", "seed"], "type": "int" },
+            { "label": "Simulated Time (seconds)", "path": ["dump", "time", "timeSeconds"], "type": "float" },
+            { "label": "Real Time (seconds)", "path": ["dump", "time", "realtimeSeconds"], "type": "float" }
+        ]
+    },
+    {
+        "title": "Camera",
+        "path": ["dump", "camera"],
+        "fields": [
+            { "label": "Camera Zoom Level", "path": ["zoomLevel"], "type": "float" },
+            { "label": "Camera Center X", "path": ["center", "x"], "type": "float" },
+            { "label": "Camera Center Y", "path": ["center", "y"], "type": "float" }
+        ]
+    },
+    {
+        "title": "Upgrades",
+        "path": ["dump", "hubGoals", "upgradeLevels"],
+        "fields": [
+            { "label": "Belt/Distributor/Tunnel Upgrade Level", "path": ["belt"], "type": "int" },
+            { "label": "Extractor Upgrade Level", "path": ["miner"], "type": "int" },
+            { "label": "Cutter/Rotate/Stacker Upgrade Level", "path": ["processors"], "type": "int" },
+            { "label": "Mixer/Painter Upgrade Level", "path": ["painting"], "type": "int" }
+        ]
+    },
+    {
+        "title": "Current Goal",
+        "path": ["dump", "hubGoals", "currentGoal"],
+        "fields": [
+            { "label": "Shape", "path": ["definition"], "type": "shape" },
+            { "label": "Required", "path": ["required"], "type": "int" },
+            { "label": "Reward", "path": ["reward"], "type": "string" }
+        ]
+    },
+    {
+        "title": "Pinned Shapes",
+        "path": ["dump", "pinnedShapes", "shapes"],
+        "type": "shape"
+    },
+    {
+        "title": "Waypoints",
+        "path": ["dump", "waypoints", "waypoints"],
+        "fields": [
+            { "label": "Label", "path": ["label"], "type": "string", "width": "1.5" },
+            { "label": "Zoom Level", "path": ["zoomLevel"], "type": "float", "width": "0.5" },
+            { "label": "Center X", "path": ["center", "x"], "type": "float" },
+            { "label": "Center Y", "path": ["center", "y"], "type": "float" }
+        ]
+    },
+    {
+        "title": "Stored Shapes",
+        "path": ["dump", "hubGoals", "storedShapes"],
+        "key": { "label": "Shape", "type": "shape" },
+        "value": { "label": "Count", "type": "int", "width": "0.3" }
+    }
+]
